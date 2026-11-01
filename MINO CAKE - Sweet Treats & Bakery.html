@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MINO CAKE - Sweet Treats & Custom Cakes</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Chart.js for Admin Analytics -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'mino-pink': '#FFB6C1',
+            'mino-pink-light': '#FFF0F3',
+            'mino-pink-dark': '#E8A2AD',
+            'mino-cream': '#FFFDF0',
+            'mino-cream-soft': '#FFF8E7',
+            'mino-mauve': '#9C528B',
+            'mino-mauve-light': '#F4E8F2',
+            'mino-purple': '#D8A7CA',
+          },
+          fontFamily: {
+            fredoka: ['Fredoka', 'sans-serif'],
+            nunito: ['Nunito', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Nunito', sans-serif;
+      background-color: #FFFFFF;
+      color: #4A3E3D;
+      scroll-behavior: smooth;
+    }
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Fredoka', cursive;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #FFF0F3;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #D8A7CA;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800 antialiased selection:bg-mino-pink selection:text-white">
+
+  <!-- TOP NAVIGATION BAR -->
+  <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-pink-100 shadow-sm transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2 group">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-pink-400 to-purple-400 flex items-center justify-center text-white text-xl shadow-md group-hover:scale-105 transition-transform">
+          🎂
+        </div>
+        <div>
+          <span class="font-heading text-xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-purple-800">MINO CAKE</span>
+          <span class="block text-[10px] text-pink-500 font-semibold tracking-widest uppercase -mt-1">Sweet Treats</span>
+        </div>
+      </a>
+
+      <!-- Quick Nav Links -->
+      <div class="hidden md:flex items-center space-x-6 text-sm font-semibold text-gray-700">
+        <a href="#katalog" class="hover:text-pink-600 transition-colors">Menu Catalog</a>
+        <a href="#bundling" class="hover:text-pink-600 transition-colors">Bundling Deals</a>
+        <a href="#custom" class="hover:text-pink-600 transition-colors">Custom Order</a>
+        <a href="#kontak" class="hover:text-pink-600 transition-colors">Contact Us</a>
+      </div>
+
+      <!-- Action & Admin Login Button -->
+      <div class="flex items-center gap-3">
+        <a href="#katalog" class="px-4 py-2 bg-gradient-to-r from-pink-400 to-pink-500 text-white font-semibold text-sm rounded-full shadow-md hover:shadow-lg hover:from-pink-500 hover:to-pink-600 transition-all flex items-center gap-1.5">
+          <i class="fa-solid fa-cake-candles">
+          </i> Order Now
+        </a>
+        <button onclick="openAdminModal()" class="p-2 text-gray-500 hover:text-purple-700 hover:bg-purple-50 rounded-full transition-colors" title="Owner Dashboard Login">
+          <i class="fa-solid fa-user-lock text-lg"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 1. HERO HEADER & VIDEO SECTION (WHITE BACKGROUND AS REQUESTED) -->
+  <section class="bg-white py-8 md:py-12 px-4 sm:px-6">
+    <div class="max-w-5xl mx-auto text-center">
+      
+      <!-- Video Player Container with clean white framing -->
+      <div class="relative w-full rounded-3xl overflow-hidden shadow-2xl border-4 border-pink-100 bg-white mb-8 group">
+        <video 
+          class="w-full h-[280px] sm:h-[420px] md:h-[500px] object-cover"
+          autoplay 
+          muted 
+          loop 
+          playsinline
+          controls
+          poster="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1000&auto=format&fit=crop"
+        >
+          <!-- Sample High Quality Bakery Video -->
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-decorating-a-delicious-strawberry-cake-41584-large.mp4" type="video/mp4">
+          Browser anda tidak mendukung tag video.
+        </video>
+        
+        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center p-6 pointer-events-none">
+          <p class="text-white text-sm font-semibold bg-black/40 backdrop-blur-md px-4 py-2 rounded-full">✨ Freshly Baked Daily at MINO CAKE Studio</p>
+        </div>
+      </div>
+
+      <!-- Brand Description Header -->
+      <div class="max-w-3xl mx-auto space-y-4">
+        <span class="inline-block px-4 py-1.5 bg-pink-100 text-pink-700 font-bold text-xs uppercase tracking-widest rounded-full shadow-sm">
+          Welcome to MINO CAKE
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 via-purple-600 to-pink-500 leading-tight">
+          sweet treats by MINO CAKE
+        </h1>
+        <p class="text-lg sm:text-xl text-purple-900/80 font-medium italic">
+          "little cakes, lovely design, and sweet moments made just for you"
+        </p>
+        <div class="pt-2 flex justify-center gap-4">
+          <a href="#katalog" class="px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold rounded-full shadow-lg hover:shadow-pink-300 hover:scale-105 transition-all flex items-center gap-2">
+            Lihat Menu Katalog <i class="fa-solid fa-arrow-down"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 2. MENU CATALOG SECTION -->
+  <section id="katalog" class="py-16 bg-gradient-to-b from-white via-pink-50/50 to-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center mb-12">
+        <span class="text-pink-500 font-bold text-sm uppercase tracking-widest">Favorit Pelanggan</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mt-1">Katalog Menu MINO CAKE</h2>
+        <div class="w-20 h-1.5 bg-gradient-to-r from-pink-400 to-purple-400 mx-auto rounded-full mt-3"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Menu 1: Midi Mousse -->
+        <div class="bg-white rounded-3xl p-5 shadow-lg shadow-pink-100/50 border border-pink-100 flex flex-col justify-between hover:-translate-y-1.5 transition-all duration-300 group">
+          <div>
+            <div class="relative overflow-hidden rounded-2xl h-48 bg-pink-100 mb-4">
+              <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?q=80&w=600&auto=format&fit=crop" alt="Midi Mousse" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              <span class="absolute top-3 right-3 bg-white/95 backdrop-blur-md text-pink-600 text-xs font-extrabold px-3 py-1 rounded-full shadow">Mousse</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-1">1. Midi Mousse</h3>
+            <p class="text-pink-600 font-extrabold text-lg mb-3">Rp 43.000</p>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+              Perpaduan rasa matcha, chocolate, dan tiramisu yang lumer di mulut dan manisnya pas!
+            </p>
+          </div>
+          <button onclick="orderViaWA('Midi Mousse', 43000)" class="w-full py-3 bg-gradient-to-r from-pink-400 to-pink-500 hover:from-pink-500 hover:to-pink-600 text-white font-bold rounded-2xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-lg"></i> Pesan via WA
+          </button>
+        </div>
+
+        <!-- Menu 2: Bento Cake -->
+        <div class="bg-white rounded-3xl p-5 shadow-lg shadow-pink-100/50 border border-pink-100 flex flex-col justify-between hover:-translate-y-1.5 transition-all duration-300 group">
+          <div>
+            <div class="relative overflow-hidden rounded-2xl h-48 bg-pink-100 mb-4">
+              <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?q=80&w=600&auto=format&fit=crop" alt="Bento Cake" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              <span class="absolute top-3 right-3 bg-white/95 backdrop-blur-md text-pink-600 text-xs font-extrabold px-3 py-1 rounded-full shadow">Best Seller</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-1">2. Bento Cake</h3>
+            <p class="text-pink-600 font-extrabold text-lg mb-3">Rp 38.000</p>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+              Bento cake mini imut dengan desain custom sesuai keinginanmu, cocok untuk gift ucapan manis.
+            </p>
+          </div>
+          <button onclick="orderViaWA('Bento Cake', 38000)" class="w-full py-3 bg-gradient-to-r from-pink-400 to-pink-500 hover:from-pink-500 hover:to-pink-600 text-white font-bold rounded-2xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-lg"></i> Pesan via WA
+          </button>
+        </div>
+
+        <!-- Menu 3: Midi Butterfly -->
+        <div class="bg-white rounded-3xl p-5 shadow-lg shadow-pink-100/50 border border-pink-100 flex flex-col justify-between hover:-translate-y-1.5 transition-all duration-300 group">
+          <div>
+            <div class="relative overflow-hidden rounded-2xl h-48 bg-purple-100 mb-4">
+              <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=600&auto=format&fit=crop" alt="Midi Butterfly" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              <span class="absolute top-3 right-3 bg-white/95 backdrop-blur-md text-purple-600 text-xs font-extrabold px-3 py-1 rounded-full shadow">Pretty</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-1">3. Midi Butterfly</h3>
+            <p class="text-pink-600 font-extrabold text-lg mb-3">Rp 75.000</p>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+              Kue midi custom dengan dekorasi butterfly yang cantik, elegan, dan aesthetic.
+            </p>
+          </div>
+          <button onclick="orderViaWA('Midi Butterfly', 75000)" class="w-full py-3 bg-gradient-to-r from-pink-400 to-pink-500 hover:from-pink-500 hover:to-pink-600 text-white font-bold rounded-2xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-lg"></i> Pesan via WA
+          </button>
+        </div>
+
+        <!-- Menu 4: Midi Custom -->
+        <div class="bg-white rounded-3xl p-5 shadow-lg shadow-pink-100/50 border border-pink-100 flex flex-col justify-between hover:-translate-y-1.5 transition-all duration-300 group">
+          <div>
+            <div class="relative overflow-hidden rounded-2xl h-48 bg-pink-100 mb-4">
+              <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?q=80&w=600&auto=format&fit=crop" alt="Midi Custom" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              <span class="absolute top-3 right-3 bg-white/95 backdrop-blur-md text-pink-600 text-xs font-extrabold px-3 py-1 rounded-full shadow">Custom 14cm</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-1">4. Midi Custom</h3>
+            <p class="text-pink-600 font-extrabold text-lg mb-3">Rp 75.000</p>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+              Kue midi custom diameter 14 cm dengan bebas tentukan desain sesuai keinginanmu.
+            </p>
+          </div>
+          <button onclick="orderViaWA('Midi Custom', 75000)" class="w-full py-3 bg-gradient-to-r from-pink-400 to-pink-500 hover:from-pink-500 hover:to-pink-600 text-white font-bold rounded-2xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-lg"></i> Pesan via WA
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 3. PAKET BUNDLING SECTION -->
+  <section id="bundling" class="py-16 bg-gradient-to-r from-pink-100/70 via-pink-50 to-purple-100/70">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="px-4 py-1.5 bg-white text-purple-700 font-extrabold text-xs rounded-full uppercase tracking-wider shadow-sm">
+          Penawaran Spesial
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-pink-600 mt-2">sweet bundling deals</h2>
+        <p class="text-lg font-semibold text-purple-900 mt-1">
+          more cake, more sweetness, more savings!
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Bundle 1 -->
+        <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-6 border-2 border-pink-200 shadow-xl flex flex-col justify-between hover:border-pink-400 transition-all">
+          <div>
+            <div class="w-14 h-14 bg-pink-100 rounded-2xl flex items-center justify-center text-pink-500 text-2xl font-bold mb-4">
+              🎁
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800">Paket Single Treats</h3>
+            <p class="text-sm text-purple-600 font-bold mb-2">1 Kue Custom</p>
+            <div class="text-3xl font-extrabold text-pink-600 mb-4">Rp 38.000</div>
+            <p class="text-gray-600 text-sm leading-relaxed mb-6">
+              Satu kue custom pilihan terbaik untuk merayakan momen berharga diri sendiri atau teman terdekat.
+            </p>
+          </div>
+          <button onclick="orderViaWA('Paket Single Treats', 38000)" class="w-full py-3.5 bg-gradient-to-r from-pink-400 to-purple-400 hover:from-pink-500 hover:to-purple-500 text-white font-bold rounded-2xl shadow-md transition-all flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-xl"></i> Ambil Paket Single
+          </button>
+        </div>
+
+        <!-- Bundle 2 (Featured) -->
+        <div class="bg-gradient-to-b from-white to-pink-50 rounded-3xl p-6 border-2 border-pink-400 shadow-2xl relative flex flex-col justify-between transform md:-translate-y-2">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-pink-500 to-purple-600 text-white text-xs font-bold px-4 py-1 rounded-full shadow-md">
+            Paling Populer! Hemat Rp 3.000
+          </div>
+          <div>
+            <div class="w-14 h-14 bg-pink-500 text-white rounded-2xl flex items-center justify-center text-2xl font-bold mb-4 shadow-md">
+              💖
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800">Paket Double Happiness</h3>
+            <p class="text-sm text-pink-600 font-bold mb-2">2 Kue Custom</p>
+            <div class="text-3xl font-extrabold text-pink-600 mb-2">Rp 73.000</div>
+            <div class="inline-block bg-pink-100 text-pink-700 text-xs font-bold px-3 py-1 rounded-lg mb-4">
+              ✨ Hemat 3.000 dibanding beli 2 kue terpisah (76.000)
+            </div>
+            <p class="text-gray-600 text-sm leading-relaxed mb-6">
+              Dua kue custom cantik dengan kejutan ekstra manis, pas banget untuk dibagikan berdua!
+            </p>
+          </div>
+          <button onclick="orderViaWA('Paket Double Happiness', 73000)" class="w-full py-3.5 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-bold rounded-2xl shadow-lg transition-all flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-xl"></i> Ambil Paket Double
+          </button>
+        </div>
+
+        <!-- Bundle 3 -->
+        <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-6 border-2 border-pink-200 shadow-xl flex flex-col justify-between hover:border-pink-400 transition-all">
+          <div>
+            <div class="w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center text-purple-600 text-2xl font-bold mb-4">
+              🎉
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800">Paket Triple Sweetness</h3>
+            <p class="text-sm text-purple-600 font-bold mb-2">3 Kue Custom</p>
+            <div class="text-3xl font-extrabold text-pink-600 mb-2">Rp 108.000</div>
+            <div class="inline-block bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-lg mb-4">
+              ✨ Hemat 6.000 dibanding beli 3 kue terpisah (114.000)
+            </div>
+            <p class="text-gray-600 text-sm leading-relaxed mb-6">
+              Tiga kue custom lengkap untuk acara keluarga, sahabat, atau momen spesial yang penuh keceriaan.
+            </p>
+          </div>
+          <button onclick="orderViaWA('Paket Triple Sweetness', 108000)" class="w-full py-3.5 bg-gradient-to-r from-pink-400 to-purple-400 hover:from-pink-500 hover:to-purple-500 text-white font-bold rounded-2xl shadow-md transition-all flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-xl"></i> Ambil Paket Triple
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 4. CUSTOM DESIGN INSTRUCTIONS SECTION -->
+  <section id="custom" class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <div class="bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 rounded-3xl p-1 shadow-xl">
+        <div class="bg-white rounded-[22px] p-8 sm:p-10 text-center relative overflow-hidden">
+          
+          <div class="w-16 h-16 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center mx-auto text-3xl mb-4 shadow-inner">
+            🎨
+          </div>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">Cara Custom Desain Kue</h2>
+          
+          <div class="max-w-2xl mx-auto bg-pink-50/70 border border-pink-200 rounded-2xl p-6 text-gray-700 leading-relaxed text-base sm:text-lg mb-6 font-medium">
+            "Kamu bisa mengajukan desain custom sesuai keinginan. Desain, detail pesanan, dan ketersediaan akan dikonfirmasi terlebih dahulu melalui WhatsApp."
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left mb-8">
+            <div class="flex items-start gap-3 p-3 bg-gray-50 rounded-xl">
+              <span class="w-7 h-7 bg-pink-400 text-white rounded-full flex items-center justify-center font-bold text-sm shrink-0">1</span>
+              <p class="text-xs text-gray-600 font-semibold">Kirimkan referensi gambarnya melalui WhatsApp kami.</p>
+            </div>
+            <div class="flex items-start gap-3 p-3 bg-gray-50 rounded-xl">
+              <span class="w-7 h-7 bg-pink-400 text-white rounded-full flex items-center justify-center font-bold text-sm shrink-0">2</span>
+              <p class="text-xs text-gray-600 font-semibold">Konsultasikan rasa, ukuran, dan tanggal pengiriman.</p>
+            </div>
+            <div class="flex items-start gap-3 p-3 bg-gray-50 rounded-xl">
+              <span class="w-7 h-7 bg-pink-400 text-white rounded-full flex items-center justify-center font-bold text-sm shrink-0">3</span>
+              <p class="text-xs text-gray-600 font-semibold">Tim kami akan mengonfirmasi slot & harga akhir!</p>
+            </div>
+          </div>
+
+          <button onclick="orderViaWA('Custom Design Request', 0)" class="px-8 py-3.5 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold rounded-full shadow-lg hover:scale-105 transition-all inline-flex items-center gap-2">
+            <i class="fa-brands fa-whatsapp text-xl"></i> Konsultasi Custom Desain Sekarang
+          </button>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 5. SOCIAL MEDIA & CONTACT SECTION -->
+  <section id="kontak" class="py-16 bg-gradient-to-b from-white to-pink-50/80 border-t border-pink-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-gray-800">Hubungi & Ikuti Kami</h2>
+        <p class="text-pink-600 font-semibold text-sm mt-1">Dapatkan update kue manis dan promo menarik setiap harinya!</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- WhatsApp -->
+        <a href="https://wa.me/6281331694738" target="_blank" rel="noopener" class="bg-white p-6 rounded-2xl border border-pink-100 shadow-md hover:shadow-xl hover:border-green-400 transition-all flex flex-col items-center text-center group">
+          <div class="w-14 h-14 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-3xl mb-3 group-hover:scale-110 transition-transform">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <h3 class="font-bold text-gray-800 text-lg mb-1">WhatsApp Order</h3>
+          <p class="text-green-600 font-extrabold text-sm mb-1">+62 813-3169-4738</p>
+          <span class="text-xs text-gray-400">Klik untuk langsung chat & pesan</span>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://instagram.com/mino_cake11" target="_blank" rel="noopener" class="bg-white p-6 rounded-2xl border border-pink-100 shadow-md hover:shadow-xl hover:border-pink-400 transition-all flex flex-col items-center text-center group">
+          <div class="w-14 h-14 bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 text-white rounded-full flex items-center justify-center text-3xl mb-3 group-hover:scale-110 transition-transform shadow-md">
+            <i class="fa-brands fa-instagram"></i>
+          </div>
+          <h3 class="font-bold text-gray-800 text-lg mb-1">Instagram</h3>
+          <p class="text-pink-600 font-extrabold text-sm mb-1">@mino_cake11</p>
+          <span class="text-xs text-gray-400">Katalog foto & inspirasi kue terbaru</span>
+        </a>
+
+        <!-- TikTok -->
+        <a href="https://tiktok.com/@mino_cake11" target="_blank" rel="noopener" class="bg-white p-6 rounded-2xl border border-pink-100 shadow-md hover:shadow-xl hover:border-purple-400 transition-all flex flex-col items-center text-center group">
+          <div class="w-14 h-14 bg-black text-white rounded-full flex items-center justify-center text-3xl mb-3 group-hover:scale-110 transition-transform shadow-md">
+            <i class="fa-brands fa-tiktok"></i>
+          </div>
+          <h3 class="font-bold text-gray-800 text-lg mb-1">TikTok</h3>
+          <p class="text-purple-600 font-extrabold text-sm mb-1">@mino_cake11</p>
+          <span class="text-xs text-gray-400">Video proses pembuatan & ide desain</span>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 6. CLOSING STATEMENTS & FOOTER -->
+  <footer class="bg-gradient-to-r from-pink-600 via-purple-700 to-pink-600 text-white py-12 px-4">
+    <div class="max-w-4xl mx-auto text-center space-y-6">
+      
+      <div class="text-4xl">🧁✨🍰</div>
+      
+      <!-- Brand-appropriate closing statement -->
+      <blockquote class="text-xl sm:text-2xl font-serif italic max-w-2xl mx-auto opacity-95">
+        "Setiap potong kue buatan MINO CAKE dirancang dengan penuh cinta untuk mengubah momen bahagiamu menjadi kenangan manis yang tak terlupakan."
+      </blockquote>
+      
+      <p class="text-pink-100 text-sm font-medium">
+        Terima kasih telah mempercayakan senyuman di hari istimewamu bersama MINO CAKE! 💕
+      </p>
+
+      <div class="pt-6 border-t border-pink-400/40 text-xs text-pink-200 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> MINO CAKE. All rights reserved.</p>
+        <button onclick="openAdminModal()" class="hover:underline flex items-center gap-1 opacity-80 hover:opacity-100">
+          <i class="fa-solid fa-lock text-xs"></i> Admin Dashboard Access
+        </button>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- 7. OWNER DASHBOARD MODAL & PROTECTED SECTION -->
+  <div id="adminModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    
+    <!-- LOGIN FORM MODAL -->
+    <div id="loginView" class="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl border-2 border-pink-200">
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mx-auto text-xl mb-2">
+          🔒
+        </div>
+        <h3 class="text-2xl font-bold text-gray-800">Owner Dashboard Login</h3>
+        <p class="text-xs text-gray-500 mt-1">Masukkan kata sandi pemilik brand MINO CAKE</p>
+      </div>
+
+      <form onsubmit="handleLogin(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-gray-600 mb-1">PASSWORD PEMILIK</label>
+          <input 
+            type="password" 
+            id="adminPasswordInput" 
+            placeholder="Masukkan kata sandi..." 
+            class="w-full px-4 py-3 rounded-xl border border-pink-200 focus:outline-none focus:ring-2 focus:ring-purple-400 text-gray-800 text-center font-bold tracking-widest"
+            required
+          >
+        </div>
+        
+        <div id="loginError" class="text-red-500 text-xs text-center font-bold hidden">
+          ❌ Kata sandi salah! Akses ditolak.
+        </div>
+
+        <button type="submit" class="w-full py-3 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold rounded-xl shadow-md hover:opacity-90 transition-all">
+          Masuk Dashboard
+        </button>
+        <button type="button" onclick="closeAdminModal()" class="w-full py-2 text-xs text-gray-400 font-semibold hover:text-gray-600">
+          Batal / Kembali
+        </button>
+      </form>
+    </div>
+
+    <!-- MAIN DASHBOARD CONTENT (Hidden until password verified) -->
+    <div id="dashboardView" class="bg-slate-50 rounded-3xl w-full max-w-6xl max-h-[90vh] overflow-y-auto custom-scrollbar shadow-2xl border border-pink-200 hidden flex flex-col">
+      
+      <!-- Dashboard Header -->
+      <div class="bg-gradient-to-r from-purple-800 via-pink-700 to-purple-800 text-white p-6 rounded-t-3xl flex items-center justify-between sticky top-0 z-10">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">📊</span>
+          <div>
+            <h2 class="text-xl font-bold">MINO CAKE - Laporan Penjualan</h2>
+            <p class="text-xs text-pink-200">Owner Access Panel (Auto-recorded via WhatsApp Orders)</p>
+          </div>
+        </div>
+        <button onclick="closeAdminModal()" class="px-3 py-1.5 bg-white/20 hover:bg-white/30 rounded-lg text-xs font-bold transition-colors">
+          Keluar <i class="fa-solid fa-xmark ml-1"></i>
+        </button>
+      </div>
+
+      <!-- Dashboard Body -->
+      <div class="p-6 space-y-6">
+        
+        <!-- Summary Cards Row -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          
+          <!-- Card 1: Total Omset -->
+          <div class="bg-white p-5 rounded-2xl border border-pink-100 shadow-sm flex items-center justify-between">
+            <div>
+              <p class="text-xs font-bold text-gray-400 uppercase">Total Omset</p>
+              <h3 id="dashTotalOmset" class="text-2xl font-extrabold text-pink-600 mt-1">Rp 0</h3>
+              <p class="text-[11px] text-green-500 font-semibold mt-1">▲ Auto update</p>
+            </div>
+            <div class="w-12 h-12 bg-pink-50 text-pink-500 rounded-xl flex items-center justify-center text-xl">
+              💰
+            </div>
+          </div>
+
+          <!-- Card 2: Produk Terlaris -->
+          <div class="bg-white p-5 rounded-2xl border border-pink-100 shadow-sm flex items-center justify-between">
+            <div>
+              <p class="text-xs font-bold text-gray-400 uppercase">Produk Terlaris</p>
+              <h3 id="dashBestSeller" class="text-lg font-extrabold text-purple-700 mt-1">Bento Cake</h3>
+              <p id="dashBestSellerCount" class="text-[11px] text-gray-500 mt-1">0 Porsi Terjual</p>
+            </div>
+            <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center text-xl">
+              👑
+            </div>
+          </div>
+
+          <!-- Card 3: Total Transaksi -->
+          <div class="bg-white p-5 rounded-2xl border border-pink-100 shadow-sm flex items-center justify-between">
+            <div>
+              <p class="text-xs font-bold text-gray-400 uppercase">Total Pesanan</p>
+              <h3 id="dashTotalOrders" class="text-2xl font-extrabold text-gray-800 mt-1">0</h3>
+              <p class="text-[11px] text-purple-500 font-semibold mt-1">Pesanan via WA</p>
+            </div>
+            <div class="w-12 h-12 bg-blue-50 text-blue-500 rounded-xl flex items-center justify-center text-xl">
+              🛒
+            </div>
+          </div>
+
+          <!-- Card 4: Rata-rata Pesanan -->
+          <div class="bg-white p-5 rounded-2xl border border-pink-100 shadow-sm flex items-center justify-between">
+            <div>
+              <p class="text-xs font-bold text-gray-400 uppercase">Rata-Rata Order</p>
+              <h3 id="dashAvgOrder" class="text-xl font-extrabold text-gray-700 mt-1">Rp 0</h3>
+              <p class="text-[11px] text-gray-400 mt-1">Per transaksi</p>
+            </div>
+            <div class="w-12 h-12 bg-amber-50 text-amber-500 rounded-xl flex items-center justify-center text-xl">
+              📈
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Charts and Period Selectors -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          
+          <!-- Sales Trend Chart (2 cols) -->
+          <div class="lg:col-span-2 bg-white p-5 rounded-2xl border border-pink-100 shadow-sm">
+            <div class="flex items-center justify-between mb-4">
+              <div>
+                <h3 class="font-bold text-gray-800">Grafik Penjualan</h3>
+                <p class="text-xs text-gray-400">Tren pendapatan & volume order</p>
+              </div>
+              <!-- Period Toggles (Mingguan vs Bulanan) -->
+              <div class="flex bg-gray-100 p-1 rounded-xl">
+                <button id="btnWeekly" onclick="switchReportPeriod('weekly')" class="px-3 py-1 text-xs font-bold rounded-lg bg-white text-purple-700 shadow-sm transition-all">Mingguan</button>
+                <button id="btnMonthly" onclick="switchReportPeriod('monthly')" class="px-3 py-1 text-xs font-bold rounded-lg text-gray-500 transition-all">Bulanan</button>
+              </div>
+            </div>
+            <div class="h-64 relative">
+              <canvas id="salesChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Product Breakdown Chart (1 col) -->
+          <div class="bg-white p-5 rounded-2xl border border-pink-100 shadow-sm flex flex-col justify-between">
+            <div>
+              <h3 class="font-bold text-gray-800 mb-1">Distribusi Produk</h3>
+              <p class="text-xs text-gray-400 mb-4">Persentase item terpesan</p>
+              <div class="h-52 relative flex items-center justify-center">
+                <canvas id="productChart"></canvas>
+              </div>
+            </div>
+            <div class="text-center pt-2">
+              <span class="text-[11px] text-purple-600 font-semibold bg-purple-50 px-3 py-1 rounded-full">Diperbarui real-time</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Transaction History Table -->
+        <div class="bg-white rounded-2xl border border-pink-100 shadow-sm overflow-hidden">
+          <div class="p-5 border-b border-gray-100 flex items-center justify-between">
+            <div>
+              <h3 class="font-bold text-gray-800">Riwayat Transaksi Whatsapp</h3>
+              <p class="text-xs text-gray-400">Tercatat otomatis setiap klik menu/paket</p>
+            </div>
+            <button onclick="clearSampleData()" class="text-xs text-red-500 font-bold hover:underline">Reset Data</button>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-gray-50 text-gray-500 uppercase font-bold border-b border-gray-100">
+                <tr>
+                  <th class="p-3">Waktu</th>
+                  <th class="p-3">Nama Produk / Paket</th>
+                  <th class="p-3">Harga</th>
+                  <th class="p-3">Status</th>
+                </tr>
+              </thead>
+              <tbody id="transactionTableBody" class="divide-y divide-gray-100 text-gray-700">
+                <!-- Rows injected dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // Initial Sample Sales Data
+    let salesData = [
+      { timestamp: "2026-11-01 08:30", item: "Bento Cake", price: 38000, status: "Terkirim ke WA" },
+      { timestamp: "2026-11-01 08:50", item: "Midi Mousse", price: 43000, status: "Terkirim ke WA" },
+      { timestamp: "2026-11-01 09:10", item: "Paket Double Happiness", price: 73000, status: "Terkirim ke WA" },
+      { timestamp: "2026-10-31 14:20", item: "Midi Butterfly", price: 75000, status: "Terkirim ke WA" },
+      { timestamp: "2026-10-30 16:45", item: "Paket Triple Sweetness", price: 108000, status: "Terkirim ke WA" },
+      { timestamp: "2026-10-29 11:15", item: "Bento Cake", price: 38000, status: "Terkirim ke WA" }
+    ];
+
+    let salesChartInstance = null;
+    let productChartInstance = null;
+    let currentPeriod = 'weekly';
+
+    // WhatsApp Direct Order Action + Auto Logging
+    function orderViaWA(itemName, price) {
+      const now = new Date();
+      const timeString = now.toISOString().slice(0, 10) + " " + now.toTimeString().slice(0, 5);
+
+      // Record transaction automatically for dashboard
+      salesData.unshift({
+        timestamp: timeString,
+        item: itemName,
+        price: price,
+        status: "Terkirim ke WA"
+      });
+
+      // Format WhatsApp message
+      const waNumber = "6281331694738";
+      let message = `Halo MINO CAKE, saya ingin memesan ${itemName}`;
+      if (price > 0) {
+        message += ` seharga Rp ${price.toLocaleString('id-ID')}`;
+      }
+      message += `. Mohon konfirmasi ketersediaan dan detail pesanan ya! Terima kasih 💕`;
+
+      const encodedMsg = encodeURIComponent(message);
+      const waUrl = `https://wa.me/${waNumber}?text=${encodedMsg}`;
+
+      // Open WA link
+      window.open(waUrl, '_blank');
+
+      // Refresh Dashboard stats if open
+      updateDashboardData();
+    }
+
+    // Modal Controls
+    function openAdminModal() {
+      document.getElementById('adminModal').classList.remove('hidden');
+      document.getElementById('adminPasswordInput').focus();
+    }
+
+    function closeAdminModal() {
+      document.getElementById('adminModal').classList.add('hidden');
+    }
+
+    function handleLogin(e) {
+      e.preventDefault();
+      const inputPass = document.getElementById('adminPasswordInput').value;
+      const errorDiv = document.getElementById('loginError');
+
+      if (inputPass === "MINO0993") {
+        errorDiv.classList.add('hidden');
+        document.getElementById('loginView').classList.add('hidden');
+        document.getElementById('dashboardView').classList.remove('hidden');
+        document.getElementById('adminPasswordInput').value = '';
+        
+        // Initialize charts and rendering
+        updateDashboardData();
+      } else {
+        errorDiv.classList.remove('hidden');
+      }
+    }
+
+    // Calculate & Render Dashboard Metrics
+    function updateDashboardData() {
+      if (document.getElementById('dashboardView').classList.contains('hidden')) return;
+
+      // Calculate Omset and Counts
+      let totalOmset = 0;
+      let itemCounts = {};
+
+      salesData.forEach(tx => {
+        totalOmset += tx.price;
+        itemCounts[tx.item] = (itemCounts[tx.item] || 0) + 1;
+      });
+
+      // Find Best Seller
+      let bestSeller = "-";
+      let maxCount = 0;
+      for (const [item, count] of Object.entries(itemCounts)) {
+        if (count > maxCount) {
+          maxCount = count;
+          bestSeller = item;
+        }
+      }
+
+      const totalOrders = salesData.length;
+      const avgOrder = totalOrders > 0 ? Math.round(totalOmset / totalOrders) : 0;
+
+      // Update UI Cards
+      document.getElementById('dashTotalOmset').innerText = `Rp ${totalOmset.toLocaleString('id-ID')}`;
+      document.getElementById('dashBestSeller').innerText = bestSeller;
+      document.getElementById('dashBestSellerCount').innerText = `${maxCount} Porsi Terjual`;
+      document.getElementById('dashTotalOrders').innerText = totalOrders;
+      document.getElementById('dashAvgOrder').innerText = `Rp ${avgOrder.toLocaleString('id-ID')}`;
+
+      // Populate Table
+      const tbody = document.getElementById('transactionTableBody');
+      tbody.innerHTML = '';
+      salesData.forEach(tx => {
+        const row = document.createElement('tr');
+        row.className = "hover:bg-pink-50/50 transition-colors";
+        row.innerHTML = `
+          <td class="p-3 text-gray-500 font-mono">${tx.timestamp}</td>
+          <td class="p-3 font-bold text-gray-800">${tx.item}</td>
+          <td class="p-3 font-semibold text-pink-600">${tx.price > 0 ? 'Rp ' + tx.price.toLocaleString('id-ID') : 'Custom Quote'}</td>
+          <td class="p-3"><span class="bg-green-100 text-green-700 px-2.5 py-1 rounded-full text-[10px] font-bold">${tx.status}</span></td>
+        `;
+        tbody.appendChild(row);
+      });
+
+      renderCharts(itemCounts);
+    }
+
+    function switchReportPeriod(period) {
+      currentPeriod = period;
+      const btnWeekly = document.getElementById('btnWeekly');
+      const btnMonthly = document.getElementById('btnMonthly');
+
+      if (period === 'weekly') {
+        btnWeekly.className = "px-3 py-1 text-xs font-bold rounded-lg bg-white text-purple-700 shadow-sm transition-all";
+        btnMonthly.className = "px-3 py-1 text-xs font-bold rounded-lg text-gray-500 transition-all";
+      } else {
+        btnMonthly.className = "px-3 py-1 text-xs font-bold rounded-lg bg-white text-purple-700 shadow-sm transition-all";
+        btnWeekly.className = "px-3 py-1 text-xs font-bold rounded-lg text-gray-500 transition-all";
+      }
+      
+      let itemCounts = {};
+      salesData.forEach(tx => { itemCounts[tx.item] = (itemCounts[tx.item] || 0) + 1; });
+      renderCharts(itemCounts);
+    }
+
+    function renderCharts(itemCounts) {
+      // 1. Sales Trend Line Chart
+      const salesCtx = document.getElementById('salesChart').getContext('2d');
+      if (salesChartInstance) salesChartInstance.destroy();
+
+      const labels = currentPeriod === 'weekly' 
+        ? ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Ming']
+        : ['Minggu 1', 'Minggu 2', 'Minggu 3', 'Minggu 4'];
+      
+      const chartValues = currentPeriod === 'weekly'
+        ? [81000, 116000, 75000, 146000, 183000, 210000, 154000]
+        : [540000, 680000, 720000, 890000];
+
+      salesChartInstance = new Chart(salesCtx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Omset Penjualan (Rp)',
+            data: chartValues,
+            borderColor: '#E8A2AD',
+            backgroundColor: 'rgba(255, 182, 193, 0.25)',
+            fill: true,
+            tension: 0.4,
+            borderWidth: 3,
+            pointBackgroundColor: '#9C528B',
+            pointRadius: 4
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false }
+          },
+          scales: {
+            y: {
+              ticks: {
+                callback: function(val) { return 'Rp ' + (val/1000) + 'k'; }
+              }
+            }
+          }
+        }
+      });
+
+      // 2. Product Breakdown Doughnut Chart
+      const prodCtx = document.getElementById('productChart').getContext('2d');
+      if (productChartInstance) productChartInstance.destroy();
+
+      const prodLabels = Object.keys(itemCounts);
+      const prodValues = Object.values(itemCounts);
+
+      productChartInstance = new Chart(prodCtx, {
+        type: 'doughnut',
+        data: {
+          labels: prodLabels.length ? prodLabels : ['Bento Cake', 'Midi Mousse', 'Lainnya'],
+          datasets: [{
+            data: prodValues.length ? prodValues : [4, 2, 1],
+            backgroundColor: ['#FFB6C1', '#D8A7CA', '#9C528B', '#F4E8F2', '#FFD1DC']
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 10 } } }
+          }
+        }
+      });
+    }
+
+    function clearSampleData() {
+      salesData = [];
+      updateDashboardData();
+    }
+  </script>
+
+</body>
+</html>
